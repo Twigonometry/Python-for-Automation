@@ -1,2 +1,2 @@
 # Python-for-Automation
-Repository Linkedin Learning - Using Python for Automation course
+Repository for Linkedin Learning - Using Python for Automation course
