@@ -13,5 +13,15 @@ def pickDirectory(value):
         for suffix in suffixes:
             if suffix == value:
                 return category
+    return "OTHER"
 
-print(pickDirectory('.png'))
+def organiseDirectory():
+    for item in os.scandir():
+        filepath = Path(item)
+        filetype = filepath.suffix.lower()
+        directory = pickDirectory(filetype)
+        directoryPath = Path(directory)
+
+        print(directoryPath)
+
+organiseDirectory()
