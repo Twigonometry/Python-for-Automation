@@ -17,11 +17,14 @@ def pickDirectory(value):
 
 def organiseDirectory():
     for item in os.scandir():
+        if item.is_dir():
+            continue
         filepath = Path(item)
         filetype = filepath.suffix.lower()
         directory = pickDirectory(filetype)
-        directoryPath = Path(directory)
-
-        print(directoryPath)
+        directory_path = Path(directory)
+        if not directory_path.is_dir():
+            directory_path.mkdir()
+        filepath.rename(directory_path.joinpath(filepath))
 
 organiseDirectory()
