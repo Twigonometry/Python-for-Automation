@@ -9,5 +9,7 @@ soup = BeautifulSoup(response.text, 'lxml')
 
 quotes = soup.find_all('span', class_='text')
 
-for quote in quotes:
-    print(quote.text)
+authors = soup.find_all('small', class_='author')
+
+for i in range(len(quotes)):
+    print(quotes[i].text + " - " + authors[i].text)
