@@ -16,3 +16,14 @@ for i in items:
     item_price = i.find('h5').text
     print('%s) Price: %s, Item Name: %s' % (count, item_price, item_name))
     count += 1
+
+pages = soup.find('ul', class_="pagination")
+urls = []
+links = pages.find_all('a', class_="page-link")
+for link in links:
+    page_num = int(link.text) if link.text.isdigit() else None
+    if page_num != None:
+        x = link.get('href')
+        urls.append(x)
+
+print(urls)
